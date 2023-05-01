@@ -1,12 +1,19 @@
 html, body {
     margin:0;
     padding:0;
-    height:100%;
+    height: 100%;
+    width: 100%;
 }
 
-.footer {
-    position:absolute;
-    bottom:0;  /* on le colle en bas */
-    width:100%;
-    height:100px;   /* Hauteur du pied de page */
- }
+div#mainFoot {
+    height: 100px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    min-height: 0vmax;
+    background-color: ghostwhite;    
+}
+
+div#mainFoot p {
+    font-size: 30px;
+}
