@@ -4,6 +4,7 @@ const logo = document.querySelector('.logo');
 const medias = document.querySelectorAll('.bulle');
 const l1 = document.querySelector('.l1');
 const l2 = document.querySelector('.l2');
+const Img = document.querySelector(".logoBackground");
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -23,6 +24,16 @@ window.addEventListener('load', () => {
 
     TL.play();
 })
+
+async function TurnImg() {
+    for (let i = 0; i < 360; i++) {
+        var t = Img.style.transform.match(/(\d+)/g) || [0];  // on met ||[0) pour le 1st passage
+        var val = ( t[0] *1 + 1) % 360;                      // incrémentation de 1
+        Img.style.transform = 'rotate(' + val +'deg)';
+        console.log(Img.style.transform);
+        await sleep(8);
+    }
+}
 
 async function Deload() {
 
@@ -84,7 +95,7 @@ async function Deload() {
     opacitySet = 1;
     topSet = 0;
     rightSet = 0
-    
+
     for (i = 0; i < medias.length; i++) {
         medias[i].style.opacity = 0;
         while (opacitySet > 0.0) {

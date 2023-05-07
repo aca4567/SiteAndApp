@@ -8,7 +8,7 @@ body {
     background: #333;
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
-    background: url('../ressources/DIscordBot.png');
+    background: url('../ressources/Background.png');
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -118,4 +118,17 @@ h1 span {
     position: fixed;
     top: 1400px;
     color: white;
+}
+
+.alignItems {
+    display: flex;
+    justify-content: center;
+}
+
+.logoBackground {
+    position: absolute;
+    z-index: -1;
+    height: auto;
+    width: 200px;
+    transform: rotate(0deg);
 }
