@@ -5,6 +5,10 @@ const medias = document.querySelectorAll('.bulle');
 const l1 = document.querySelector('.l1');
 const l2 = document.querySelector('.l2');
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 window.addEventListener('load', () => {
 
     const TL = gsap.timeline({paused: true});
@@ -17,8 +21,80 @@ window.addEventListener('load', () => {
     .from(logo, 0.4, {transform: "scale(0)", ease: "power2.out"}, '-=2')
     .staggerFrom(medias, 1, {right: -200, ease: "power2.out"}, 0.3, '-=1');
 
-    
-    
-
     TL.play();
 })
+
+async function Deload() {
+
+    topSet = 0;
+    opacitySet = 1;
+    while (opacitySet > 0.0) {
+        topSet -= 1;
+        opacitySet -= 0.1;
+        await sleep(20);
+        logo.style.opacity = opacitySet;
+        logo.style.top = topSet + "px";
+    }
+    topSet = 0;
+    opacitySet = 1;
+
+    while (opacitySet > 0.0) {
+        topSet -= 1;
+        opacitySet -= 0.1;
+        await sleep(20);
+        l1.style.opacity = opacitySet;
+        l1.style.top = topSet + "px";
+    }
+    topSet = 0;
+    opacitySet = 1;
+
+    while (opacitySet > 0.0) {
+        topSet -= 1;
+        opacitySet -= 0.1;
+        await sleep(20);
+        l2.style.opacity = opacitySet;
+        l2.style.top = topSet + "px";
+    }
+    opacitySet = 1;
+    topSet = 0;
+
+    for (i = 0; i < titreSpans.length; i++) {
+        while (opacitySet > 0.0) {
+            topSet -= 1;
+            opacitySet -= 0.1;
+            await sleep(20);
+            titreSpans[i].style.opacity = opacitySet;
+            titreSpans[i].style.top = topSet + "px";
+        }
+        opacitySet = 1;
+        topSet = 0;
+    }
+    opacitySet = 1;
+    topSet = 0;
+
+    for (i = 0; i < btns.length; i++) {
+        btns[i].style.opacity = 0;
+        while (opacitySet > 0.0) {
+            opacitySet -= 0.1;
+            await sleep(20);
+            btns[i].style.opacity = opacitySet;
+        }
+        opacitySet = 1;
+    }
+    opacitySet = 1;
+    topSet = 0;
+    rightSet = 0
+    
+    for (i = 0; i < medias.length; i++) {
+        medias[i].style.opacity = 0;
+        while (opacitySet > 0.0) {
+            rightSet -= 1;
+            opacitySet -= 0.1;
+            await sleep(20);
+            medias[i].style.opacity = opacitySet;
+            medias[i].style.right = rightSet + "px";
+        }
+        opacitySet = 1;
+        rightSet = 0;
+    }
+}
